@@ -1,0 +1,64 @@
+
+<div class="container">
+    <h2>Registration</h2>
+    <form #registerform="ngForm" (submit)="gotogames()">
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="firmName">Company Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter Your Company Name" name="registration.firmName" [(ngModel)]= "registration.firmName" required #firmName="ngModel"
+                [class.is-invalid]="firmName.invalid && firmName.touched">
+                <small class="text-danger" [class.d-none]="firmName.valid || firmName.untouched">Company Name is required</small>
+            </div>
+            <p>{{registration.firmName}}</p>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="address">Address</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter Company Address" name="address" [(ngModel)]= "registration.address" required #address="ngModel"
+                [class.is-invalid]="address.invalid && address.touched">
+                <small class="text-danger" [class.d-none]="address.valid || address.untouched">Company Address is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="spocName">SPOC Name:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter SPOC Name" name="spocName" [(ngModel)]= "registration.spocName" required #spocName="ngModel"
+                [class.is-invalid]="spocName.invalid && spocName.touched">
+                <small class="text-danger" [class.d-none]="spocName.valid || spocName.untouched">Company Name is required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="phoneNo">SPOC Contact number:</label>
+            <div class="col-sm-10">
+                <input type="tel" class="form-control" placeholder="Enter Contact Numer" name="phoneNo" [(ngModel)]= "registration.phoneNo" required #phoneNo="ngModel"
+                [class.is-invalid]="phoneNo.invalid && phoneNo.touched">
+                <small class="text-danger" [class.d-none]="phoneNo.valid || phoneNo.untouched">Contact detail required</small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="spocContact">SPOC Email ID:</label>
+            <div class="col-sm-10">
+            <input type="email" class="form-control" placeholder="Enter email" name="spocContact" [(ngModel)]= "registration.spocContact" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #spocContact="ngModel"
+            [class.is-invalid]="spocContact.invalid && spocContact.touched">
+            <small class="text-danger" [class.d-none]="spocContact.valid || spocContact.untouched">Email ID is required</small>
+            
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="password">Password:</label>
+            <div class="col-sm-10">          
+            <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]= "registration.password" required #password="ngModel"
+            [class.is-invalid]="password.invalid && password.touched">
+            <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is required</small>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <button [disabled]="registerform.form.invalid" type="submit" class="btn btn-info">Next</button>
+            </div>
+        </div>
+    </form>
+  </div>
+  
