@@ -1,0 +1,64 @@
+
+<div class="container">
+    <br>
+    <h3>Choose Events</h3>
+    <hr/>
+    <form #eventform="ngForm" (submit)="submit()">
+        <div class="form-group">
+            <label for="eventName">Event Name:</label>
+            <select class="form-control" name="eventName" placeholder="Select Event" [(ngModel)]="events.eventName" #eventName="ngModel">
+                <option disabled>Select Event</option>
+                <option *ngFor="let eventName of eventList" [value]="eventName" >{{eventName}}</option>
+            </select>
+            <div *ngIf="eventName.touched && eventName.invalid" class="alert alert-danger">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="eventType">Event Type:</label>
+            <select class="form-control" name="eventType" placeholder="Select Type" [(ngModel)]="events.eventType" #eventType="ngModel">
+                <option disabled>Select Type</option>
+                <option *ngFor="let eventType of eventTypeList" [value]="eventType" >{{eventType}}</option>
+            </select>
+            <div *ngIf="eventType.touched && eventType.invalid" class="alert alert-danger">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2" for="eventDesc">Event Description:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter Description" name="eventDesc" [(ngModel)]= "events.eventDesc" required #eventDesc="ngModel"
+                [class.is-invalid]="eventDesc.invalid && eventDesc.touched">
+                <small class="text-danger" [class.d-none]="eventDesc.valid || eventDesc.untouched">Event Description is required</small>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <small (click)="addEvents()" class="btn btn-info">Add Event</small>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <button [disabled]="eventform.form.invalid" type="submit" class="btn btn-info">Next</button>
+            </div>
+        </div>
+    </form>
+  
+    <br>
+    <h3>Event Details</h3> 
+
+<hr/>
+<div *ngFor="let el of elist; let num=index">
+    <div>
+        <label><b>Event Index:</b></label> {{num}}
+      </div>
+    <div>
+    <label><b>Event Name: </b></label> {{el.eventName}}
+  </div>
+  <div>
+    <label><b>Event Type: </b></label>{{el.eventType}}
+  </div>
+  <br>
+  </div>
+  

@@ -1,0 +1,64 @@
+
+<div class="container">
+    <br>
+    <h3>Choose User Parameters</h3>
+    <hr/>
+    <form #userform="ngForm" (submit)="submit()">
+        <div class="form-group">
+            <label for="userParamName">User Parameter Name:</label>
+            <select class="form-control" name="userParamName" placeholder="Select Parameter" [(ngModel)]="users.userParamName" #userParamName="ngModel">
+                <option disabled>Select Parameter</option>
+                <option *ngFor="let userParamName of userParamNameList" [value]="userParamName" >{{userParamName}}</option>
+            </select>
+            <div *ngIf="userParamName.touched && userParamName.invalid" class="alert alert-danger">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="userParamType">User Parameter Type:</label>
+            <select class="form-control" name="userParamType" placeholder="Select Type" [(ngModel)]="users.userParamType" #userParamType="ngModel">
+                <option disabled>Select Type</option>
+                <option *ngFor="let userParamType of userParamTypeList" [value]="userParamType" >{{userParamType}}</option>
+            </select>
+            <div *ngIf="userParamType.touched && userParamType.invalid" class="alert alert-danger">
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label class="control-label col-sm-2" for="eventDesc">Event Description:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" placeholder="Enter Description" name="eventDesc" [(ngModel)]= "events.eventDesc" required #eventDesc="ngModel"
+                [class.is-invalid]="eventDesc.invalid && eventDesc.touched">
+                <small class="text-danger" [class.d-none]="eventDesc.valid || eventDesc.untouched">Event Description is required</small>
+            </div>
+        </div>-->
+        <br>
+        <br>
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <small (click)="addUsers()" class="btn btn-info">Add User Parameters</small>
+            </div>
+        </div>
+        <br>
+        <div class="form-group">        
+            <div class="col-sm-offset-2 col-sm-10">
+            <button [disabled]="userform.form.invalid" type="submit" class="btn btn-info">Next</button>
+            </div>
+        </div>
+    </form>
+  
+    <br>
+    <h3>User Parameters Selected</h3> 
+
+<hr/>
+<div *ngFor="let ul of ulist; let num=index">
+    <div>
+        <label><b>Index:</b></label> {{num}}
+      </div>
+    <div>
+    <label><b>User Parameter Name</b></label> {{ul.userParamName}}
+  </div>
+  <div>
+    <label><b>User Parameter Type: </b></label>{{ul.userParamType}}
+  </div>
+  <br>
+  </div>
+  

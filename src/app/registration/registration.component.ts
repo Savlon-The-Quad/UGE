@@ -19,10 +19,10 @@ export class RegistrationComponent implements OnInit {
   gotogames(){
     this._router.navigate(['/gamesdetails']);
     console.log(this.registration);
-    /*this._service.registration(this.registration).subscribe(
+    /*this._service.registrationFromRemote(this.registration).subscribe(
       data => {
         console.log("Registered succesfully");
-        this._router.navigate(['/gamesdetails'])
+        this._router.navigate(['/gamesdetails']);
     }
     )*/
   }

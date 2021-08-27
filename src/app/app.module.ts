@@ -4,10 +4,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginsuccessComponent } from './loginsuccess/loginsuccess.component';
 import { GamesComponent } from './games/games.component';
+import { ServicesComponent } from './services/services.component';
+import { EventsComponent } from './events/events.component';
+import { UsersComponent } from './users/users.component';
+
 
 
 
@@ -17,14 +21,17 @@ import { GamesComponent } from './games/games.component';
     RegistrationComponent,
     LoginComponent,
     LoginsuccessComponent,
-    GamesComponent
+    GamesComponent,
+    ServicesComponent,
+    EventsComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
-  ],
+    AppRoutingModule,
+    ReactiveFormsModule  ],
   providers: [],
   bootstrap: [AppComponent]
 })
